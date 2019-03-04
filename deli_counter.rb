@@ -8,7 +8,3 @@ def take_a_number(array, string)
   katz_array = []
   puts person's name
 end
-
-
-
-  
