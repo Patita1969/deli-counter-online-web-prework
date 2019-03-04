@@ -1,37 +1,26 @@
-# Write your code here.
-def take_a_number(line, person)
-  line << person
-  puts line.length
+
+def take_a_number(current_line, name)
+  your_spot = current_line.size + 1
+
+  message = "Hello, #{name}, you are ##{your_spot}."
+  message
 end
 
-def line(line)
-  print "The line is currently: "
-  line.each_with_index do |person, index|
-    print "#{index+1}. #{person} "
+def now_serving(current_line)
+  next_customer = current_line.shift
+  puts "Come on up, #{next_customer}!"
+  current_line
+end
+
+def line(current_line, name)
+  your_spot_in_line = current_line.index(name)+1
+  puts "Hello, #{name}, your current position in line is: ##{your_spot_in_line}."
+end
+
+def line_alt(current_line)
+  status = "The line is currently: "
+  current_line.each_with_index do |person, index|
+    status += "#{index+1}. #{person} "
   end
-  print "\n"
+  status
 end
-
-def now_serving(line)
-  puts "Currently serving #{line.shift}"
-end
-
-
-
-take_a_number(katz_deli, "Ada") #=> "1"
-take_a_number(katz_deli, "Grace") #=> "2"
-take_a_number(katz_deli, "Kent") #=> "3"
-
-line(katz_deli) #=> "The line is currently: 1. Ada 2. Grace 3. Kent"
-
-now_serving(katz_deli) #=> "Currently serving Ada"
-
-line(katz_deli) #=> "The line is currently: 1. Grace 2. Kent"
-
-take_a_number(katz_deli, "Matz") #=> "3"
-
-line(katz_deli) #=> "The line is currently: 1. Grace 2. Kent 3. Matz"
-
-now_serving(katz_deli) #=> "Currently serving Grace"
-
-line(katz_deli) #=> "1. Kent 2. Matz"
