@@ -1,20 +1,22 @@
 # Write your code here.
-def take_a_number(current_line, new_person)
-  current_line << new_person
-  current_line.length
+def take_a_number(line, person)
+  line << person
+  puts line.length
 end
 
-def now_serving(current_line)
-  puts "Currently serving #{current_line.first}"
-  current_line.shift
+def line(line)
+  print "The line is currently: "
+  line.each_with_index do |person, index|
+    print "#{index+1}. #{person} "
+  end
+  print "\n"
 end
 
-def line(current_line)
-  puts "The line is currently: "
-  current_line.each_with_index{|x,i| puts "#{i+1}. #{x} "}
+def now_serving(line)
+  puts "Currently serving #{line.shift}"
 end
 
-katz_deli = []
+
 
 take_a_number(katz_deli, "Ada") #=> "1"
 take_a_number(katz_deli, "Grace") #=> "2"
